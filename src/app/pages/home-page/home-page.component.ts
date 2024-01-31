@@ -11,6 +11,7 @@ import {
   MatDialogContent,
 } from '@angular/material/dialog';
 import {FormCreationRecetteComponent} from "../form-creation-recette/form-creation-recette.component";
+import {AuthServiceService} from "../../services/Auth/auth-service.service";
 
 @Component({
   selector: 'app-home-page',
@@ -27,11 +28,15 @@ export class HomePageComponent {
 
   recipes=[1,1,1,1,1,1]
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, public authService:AuthServiceService) {
   }
 
   handleOpenCreateRecipeForm(){
     this.dialog.open(FormCreationRecetteComponent)
+  }
+
+  ngOnInit(){
+    this.authService.getUserProfile()
   }
 
 }
