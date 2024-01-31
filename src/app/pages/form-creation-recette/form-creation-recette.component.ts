@@ -8,9 +8,13 @@ import { MatRadioModule } from "@angular/material/radio";
 @Component({
   selector: 'app-form-creation-recette',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatButton, MatRadioModule],
+  imports: [FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButton,
+    MatRadioModule],
   templateUrl: './form-creation-recette.component.html',
-  styleUrl: './form-creation-recette.component.css'
+  styleUrl: './form-creation-recette.component.scss'
 })
 export class FormCreationRecetteComponent {
 
