@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from "@angular/material/icon";
@@ -17,6 +17,7 @@ import {UpdateFormRecetteComponent} from "../update-form-recette/update-form-rec
 })
 export class CarteRecetteComponent {
 
+  @Input() recipe:any
   constructor(public dialog:MatDialog) {
 
   }

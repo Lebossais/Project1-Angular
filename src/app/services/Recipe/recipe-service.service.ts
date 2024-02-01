@@ -26,7 +26,7 @@ export class RecipeServiceService {
 
   getRecipes():Observable<any>{
     const headers=this.getHeaders();
-    return this.http.get(`${this.baseUrl}/api/recipe`,
+    return this.http.get(`${this.baseUrl}/api/recipes`,
       {headers}).pipe(
     tap((recipes)=> {
       const currentState=this.recipeSubject.value;
@@ -37,10 +37,10 @@ export class RecipeServiceService {
 
   createRecipe(recipe:any):Observable<any>{
     const headers=this.getHeaders();
-    return this.http.post(`${this.baseUrl}/api/recipe`,
+    return this.http.post(`${this.baseUrl}/api/recipes`,recipe,
       {headers}).pipe(
       tap((newRecipe)=> {
-        const currentState=this.recipeSubject.value;
+        const currentState = this.recipeSubject.value;
         this.recipeSubject.next({...currentState, recipes:
             [newRecipe, ...currentState.recipes] });
       })
