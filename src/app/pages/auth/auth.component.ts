@@ -32,7 +32,7 @@ export class AuthComponent {
   }
 
   registerForm = new FormGroup({
-    fullName:new FormControl("",[Validators.required]),
+    fullname:new FormControl("",[Validators.required]),
     email:new FormControl("",[Validators.required,Validators.email]),
     password:new FormControl("",[
       Validators.required,
