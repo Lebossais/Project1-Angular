@@ -49,7 +49,7 @@ export class RecipeServiceService {
 
   updateRecipe(recipe:any):Observable<any>{
     const headers=this.getHeaders();
-    return this.http.put(`${this.baseUrl}/api/recipe/${recipe.id}`, recipe,
+    return this.http.put(`${this.baseUrl}/api/recipes/${recipe.id}`, recipe,
       {headers}).pipe(
       tap((updatedRecipe:any)=> {
         const currentState=this.recipeSubject.value;
@@ -63,11 +63,11 @@ export class RecipeServiceService {
 
   deleteRecipe(id:any):Observable<any>{
     const headers=this.getHeaders();
-    return this.http.delete(`${this.baseUrl}/api/recipe/${id}`,
+    return this.http.delete(`${this.baseUrl}/api/recipes/${id}`,
       {headers}).pipe(
-      tap((deletedRecipe:any)=> {
+      tap((deletedRecipe: any)=> {
         const currentState=this.recipeSubject.value;
-        const updatedRecipes= currentState.filter.map
+        const updatedRecipes= currentState.recipes.filter
         ((item:any)=>item.id !== id);
         this.recipeSubject.next({...currentState, recipes:updatedRecipes });
       })
@@ -76,7 +76,7 @@ export class RecipeServiceService {
 
   likeRecipe(id:any):Observable<any>{
     const headers=this.getHeaders();
-    return this.http.put(`${this.baseUrl}/api/recipe/${id}/like`,
+    return this.http.put(`${this.baseUrl}/api/recipes/${id}/like`,
       {headers}).pipe(
       tap((updatedRecipe:any)=> {
         const currentState=this.recipeSubject.value;
